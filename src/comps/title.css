@@ -1,0 +1,36 @@
+
+.title{
+    /* width:94vw; */
+    
+    display: flex;
+    background-color: #385a5f;
+    color:white;
+    border-radius: 10px;
+    padding: 2%;;
+    justify-content: space-between;
+    align-items: center;
+    /* background-image: url(../images/logo.jpg); */
+    height: 100%;
+    background-position:center;
+    
+}
+.title h1{
+    font-size: 2.7vw;
+    color:whitesmoke;
+}
+.title-wrap{
+    width:30%;
+}
+.title-wrap p{
+    font-size: 1.3vw;
+}
+@media only screen and (max-width: 500px) {
+    .title h1{
+        font-size: 6vw;
+        
+    }
+    .title-wrap p{
+        font-size: 3vw;
+    }
+
+  }
