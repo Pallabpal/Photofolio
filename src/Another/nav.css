@@ -1,0 +1,22 @@
+.logo {
+    /* width: calc(100% - 10px); */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    background-color: #A0A0F9;
+    padding: 10px; 
+    box-sizing: border-box;
+}
+
+
+.logo img{
+    width:55px;
+    margin-left: 20px;
+}
+.logo span{
+    color:black;
+    font-weight: 600;
+    font-size: 25px;
+    
+}

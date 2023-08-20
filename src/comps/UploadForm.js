@@ -14,7 +14,7 @@ const UploadForm =()=>{
    const [items, setItems] =  useState('');
    const[progressbar, setProgressbar]=useState('')
    const types=['image/jpeg', 'image/png', 'image/jpg'];
-  useEffect(()=>{
+   useEffect(()=>{
         onSnapshot(collection(db, "blogs"), (snapShot) => {
           const blogs= snapShot.docs.map((doc)=>{
           return{

@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@300&display=swap');
+body{
+    margin:0;
+    padding:0;
+    background-color: #E5F1FF;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+.album-Container{
+    margin:0 6% 0 6%;
+    /* background-color: aqua; */
+    padding:1%;
+}
+.heading{
+    display: flex;
+    /* background-color: #0077FF; */
+    justify-content: space-between;
+    align-items: center;
+   
+    
+}
+.heading button{
+    height: 40px;
+    /* width: 7%; */
+    cursor: pointer;
+}
+form {
+    text-align: center;
+}
+.gallery{
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    gap:10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.gallery .card{
+    width:180px;
+    height: 150px;
+    border:6px solid #7474cb;
+    border-left-width: 6px;
+    border-right-width: 6px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    overflow: hidden;
+    gap:0px;
+    cursor: pointer;
+}
+.card .details{
+    background-color: #7474cb;
+    width: 100%;
+    padding: 4px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    font-weight: 600;
+    text-align: center;
+}
+.gallery .card:hover {
+    border-color: #0077FF;
+}
+.gallery .card:hover .details{
+    background-color: #0077FF;
+}
+.card img{
+    width:100%;
+    height: 100%;
+    opacity: 0.8;
+    object-fit: fill;
+}
+/* --------------------input-------------- */
+#input{
+    outline: none;
+    background: transparent;
+    padding: 15px;
+    border: none;
+    line-height: 10px;
+    font-size: 15px;
+    font-weight: 500;
+}
+.Input-button{
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:10px;
+    width:40%;
+    border:2px solid black;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+.btn1{
+  padding:7px;
+  background: #FF1300;
+  border: none;
+  /* width:10%; */
+  font-size: 18px;
+  color: white;
+  margin: 5px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn2{
+    background: #0077FF;
+}
+.btn3{
+    background-color: transparent;
+    color:#0077FF;
+    border:2px solid #0077FF;
+    font-size: 15px;
+    background-color: #E5F1FF;
+}
+.btn4{
+    background-color: orange;
+}
+/* -----------------images--------------- */
+.imageContainer{
+    margin-top:10vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center   ;
+    padding: 5px;
+    width: 100%;
+    gap:13px;
+    /* background-color: #FF1300; */
+  }
+.Image-item{
+  
+        background-color: black;
+        max-height: 200px;
+        border: 6px solid rgb(95, 93, 93);
+        border-radius: 7px;
+        position: relative;
+        cursor: pointer;
+        max-width: 200px;
+}
+.Image-item img{
+        width:100%;
+        height: 100%;
+        max-width: 300px;
+        object-fit: cover;
+}
+.Image-item img:hover{
+    /* transform: scale(1.02, 1.02); */
+    opacity: 0.9;
+
+}
+.Image-item:hover{
+    border: 6px solid red;
+}
+/* ----------------form----------------- */
+#upload{
+    display: none;
+}
+
+.label{
+    /* height: 200px; */
+    /* width: 2vw; */
+    /* border-radius: 50%; */
+    color: #488BFF;
+    font-weight: 600;
+    cursor: pointer;
+    /* font-size: 1.5rem; */
+    border-radius: 6px;
+    padding: 2%;
+    
+    background-color: rgb(47, 49, 51);
+    /* border:3px dashed rgb(190, 167, 181); */
+
+}
+
+.label img{
+    width:5%;
+    object-fit: fill;
+}
+#form{
+    text-align: center;
+    margin: 3vh 0 5vh 0;
+    transition: all 0.5s ease-in-out;
+}
+#form:hover{
+     transform: scale(1.02, 1.02);
+}
+/* ------------------AlbumPAge-------------- */
+.Albumpage{
+    display: flex;
+    /* justify-content: space-evenly; */
+    align-items: center;
+    /* background-color: #FF1300; */
+    flex-wrap: wrap;
+    gap:10px;
+}
+.Albumpage h2{
+  color:mediumvioletred;
+}
+.Albumpage input{
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background: transparent;
+    outline: none;
+}
+.return-btn{
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top:20%;
+    left:2%
+}
+.return-btn img{
+    width:40px;
+    cursor: pointer;
+}

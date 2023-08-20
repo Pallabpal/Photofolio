@@ -7,12 +7,14 @@
 }
 
 /* base styles & title */
-body{
+/* body{
   font-family: "Noto Serif";
   color: var(--secondary);
-}
+} */
 .App{
-  margin-top: 20px;
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
 }
 
 /* image grid styles */
