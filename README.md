@@ -25,8 +25,3 @@ Live demo: https://pallabpal.github.io/Photofolio/
 4. To delete an album or image, use the respective "Delete" button.
 License
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-Acknowledgments
-Thank you to the Firebase team for providing a robust backend solution.
-Special thanks to the React community for creating a fantastic library for building user interfaces.
-Enjoy managing your photo collection with Photofolio! If you have any questions or run into issues, please don't hesitate to open an issue.
