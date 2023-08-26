@@ -2,9 +2,12 @@ import {  useEffect,useState } from "react";
 import {db,storage} from "../firebase/config"
 import { doc, deleteDoc, updateDoc} from "firebase/firestore";
 import './body.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Loader from "../Loader/loader";
 import { ref,uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import Lightbox from "./Lightbox";
-export default function AlbumPage({albumid, resetid, albums,updateBlog,name, setName}){
+export default function AlbumPage({albumid, resetid, albums,updateBlog,name, setName, loading, setLoading}){
   const [file, setFile]=useState('');
   const[progressbar, setProgressbar]=useState('')
   const [lightbox, setLightbox]=useState(false)
@@ -39,6 +42,7 @@ useEffect(()=>{
       uploadTask.on('state_changed', 
          (snapshot) => {
         const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        if(progress>0 && progress<100)
         // console.log('Upload is ' + progress + '% done');
         setProgressbar(progress);
       }, 
@@ -69,7 +73,7 @@ async function deleteAlbum(){
   resetid();
   const docRef= doc(db,"albums",albumid)
   await deleteDoc(docRef);
-  
+ 
  }
  const updatebutton=async (value)=>{
    if(value===0){
@@ -81,6 +85,9 @@ async function deleteAlbum(){
    setName(rename);
    setRename('');
    setRenamebtn(false);
+   toast.info('Album Renamed!', {
+    position: toast.POSITION.TOP_CENTER
+});
  }
     return(
         <>
@@ -90,12 +97,13 @@ async function deleteAlbum(){
         <div className="Albumpage">
        {/* <h2> Album :{name&&name}</h2> */}
        <h2>{rename?rename:name}</h2>
-       <p> {progressbar}</p>
+      
        <button className="btn1" onClick={deleteAlbum}>Delete</button>
        {renamebtn?<><p><input value={rename} onChange={(e)=>setRename(e.target.value)} ></input></p>
        <p> <p><button className="btn1" onClick={()=>updatebutton(0)}>Update</button></p></p></>:
        <button className="btn1 btn2" onClick={()=>setRenamebtn(!renamebtn)}>Rename</button>
        }
+       <ToastContainer />
        
        </div>
         <div>

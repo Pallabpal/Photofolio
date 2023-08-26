@@ -31,7 +31,8 @@
     border-radius: 10px;
     border:2px solid red;
     cursor: pointer;
+    transition: all 0.5s;
 }
 .lightbox-btn button:hover{
-    background-color: blueviolet;
+    background-color: rgb(197, 182, 210);
 }

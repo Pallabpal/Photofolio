@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react"
 import {db} from "../firebase/config";
+import Loader from "../Loader/loader";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './body.css'
 // import {uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { onSnapshot, doc, setDoc, collection, updateDoc,query,orderBy } from "firebase/firestore";
+import { onSnapshot, doc, setDoc, collection, updateDoc } from "firebase/firestore";
 import AlbumPage from "./Albumpage";
 export default function Album(){
   const [albums, setAlbums]=useState([]);
@@ -27,20 +30,6 @@ export default function Album(){
   setLoading(false);
   });
 },[])
-// useEffect(() => {
-//   onSnapshot(
-//     query(collection(db, "albums"), orderBy("createdOn")),
-//     (snapShot) => {
-//       const albums = snapShot.docs.map((doc) => {
-//         return {
-//           id: doc.id,
-//           ...doc.data(),
-//         };
-//       });
-//       setAlbums(albums);
-//     }
-//   );
-// }, []);
 
 const updateBlog= async(id,text)=>{
     // console.log("items", text, id);
@@ -73,6 +62,10 @@ const changeHandler=async (e)=>{
         content:[],
         createdOn: new Date().toLocaleDateString()
       })
+      if(selected)
+      toast.success(`${selected} Created Successfully!`, {
+        position: toast.POSITION.TOP_RIGHT
+    });
      
    
 
@@ -108,7 +101,7 @@ const handleClose=()=>{
 }
     return(
         <>
-        {loading?"Loading.....":null}
+        {loading?<Loader />:
         <div className="album-Container">
         
         {albumid?null:
@@ -122,7 +115,7 @@ const handleClose=()=>{
           <div className="Input-button">
          <input id="input" type="text" placeholder="Enter Album Name"/>
         </div>
-        
+        <ToastContainer />
         <button type="submit" className="btn1">Clear</button>
         <button type="submit" className="btn1 btn2">Create</button>
         <button type="submit" className="btn1 btn4" onClick={handleClose}>Cancel</button>
@@ -142,9 +135,10 @@ const handleClose=()=>{
            
         </div>
         </>}
-        {albumid && <AlbumPage albumid={albumid} albums={albums} resetid={resetid} updateBlog={updateBlog} 
-        name={name} setName={setName} />}
+        {albumid && <AlbumPage albumid={albumid} albums={albums} resetid={resetid} updateBlog={updateBlog}
+        loading={loading} setLoading ={setLoading} name={name} setName={setName} />}
         </div>
+      }
         </>
     )
 }

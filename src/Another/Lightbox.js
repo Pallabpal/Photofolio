@@ -1,7 +1,8 @@
 import './ligtbox.css'
 import { db } from '../firebase/config';
 import { doc, updateDoc} from "firebase/firestore";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
  import { useState, useEffect } from 'react';
 import {motion} from 'framer-motion';
 // import { useEffect } from 'react';
@@ -47,20 +48,25 @@ const [arr, setArr]=useState(null);
     await updateDoc(docRef, {
         titleimg:imagearray[imageInd] 
       });
-      
+      toast.success(`Album Photo updated`, {
+        position: toast.POSITION.BOTTOM_LEFT
+    });
    }
-   const downloadfile=()=>{
-         let hidden_a = document.createElement('a');
-         hidden_a.setAttribute('href', 'data:text/plain;charset=utf-8, '+ encodeURIComponent(imagearray[imageInd]));
-         
-         // also set the value of the download attribute
-         hidden_a.setAttribute('download', "img_file");
-         document.body.appendChild(hidden_a);
-         
-         // click the link element
-         hidden_a.click();  
-         document.body.removeChild(hidden_a);
-   }
+  const downloadfile = () => {
+
+    let hidden_a = document.createElement('a');
+
+    
+    hidden_a.setAttribute('href', 'data:image/png;base64,' + btoa(imagearray[imageInd])); 
+    hidden_a.setAttribute('download', 'img_file.png'); 
+
+    document.body.appendChild(hidden_a);
+
+    
+    hidden_a.click();
+    document.body.removeChild(hidden_a);
+}
+
     return(
             <>
             <motion.div  className='wrapper'
@@ -72,6 +78,7 @@ const [arr, setArr]=useState(null);
               <div className='lightbox-btn'>
               <button onClick={deleteImage}>Delete</button>
               <button onClick={handlechangeAlbum}>Change Album photo</button>
+              <ToastContainer />
               <button onClick={downloadfile}>Download</button>
               </div>
             </motion.div>
