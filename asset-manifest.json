@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Photofolio/static/css/main.441b6f63.css",
-    "main.js": "/Photofolio/static/js/main.85a1d5ce.js",
+    "main.js": "/Photofolio/static/js/main.23d114dc.js",
     "index.html": "/Photofolio/index.html",
     "main.441b6f63.css.map": "/Photofolio/static/css/main.441b6f63.css.map",
-    "main.85a1d5ce.js.map": "/Photofolio/static/js/main.85a1d5ce.js.map"
+    "main.23d114dc.js.map": "/Photofolio/static/js/main.23d114dc.js.map"
   },
   "entrypoints": [
     "static/css/main.441b6f63.css",
-    "static/js/main.85a1d5ce.js"
+    "static/js/main.23d114dc.js"
   ]
 }
