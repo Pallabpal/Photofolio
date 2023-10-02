@@ -25,7 +25,8 @@ export default function Album(){
           ...doc.data()
       }
     })
-    // console.log(albums);
+  albums.sort((a, b) => b.createTime.localeCompare(a.createTime));
+  console.log(albums);
   setAlbums(albums);
   setLoading(false);
   });
@@ -60,7 +61,8 @@ const changeHandler=async (e)=>{
         title:selected,
         titleimg:null,
         content:[],
-        createdOn: new Date().toLocaleDateString()
+        createdOn: new Date().toLocaleDateString(),
+        createTime: Date.now().toString()
       })
       if(selected)
       toast.success(`${selected} Created Successfully!`, {

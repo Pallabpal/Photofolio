@@ -42,9 +42,11 @@ useEffect(()=>{
       uploadTask.on('state_changed', 
          (snapshot) => {
         const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        if(progress>0 && progress<100)
-        // console.log('Upload is ' + progress + '% done');
+        
+        console.log('Upload is ' + progress + '% done');
         setProgressbar(progress);
+        if(progress===100)
+        setProgressbar(0);
       }, 
     (error) => {
     alert("Error to Fetching Images:)", error);
@@ -119,8 +121,9 @@ async function deleteAlbum(){
                       </label>
                     <input id="upload" type="file" onChange={changeHandler}/>
                     {/* <div style={{color:"red"}}>{file && file.name}</div> */}
+                    {/* <span style={{display:"inline-block", width:`${progressbar}px`, height:"2px", background:"red", overflow:"hidden"}}></span> */}
                 </div>
-               
+               <span>{progressbar}</span>
               </form>
          <div className="imageContainer">
          
